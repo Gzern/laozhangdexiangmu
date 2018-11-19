@@ -23,6 +23,7 @@ public class NonCooperativeGameFrame extends AbstractProjectFrame {
             public void actionPerformed(ActionEvent e) {
             }
         });
+        
         this.getContentPane().add(button);
     }
 }
