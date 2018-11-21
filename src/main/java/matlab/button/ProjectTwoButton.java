@@ -1,6 +1,5 @@
-package matlab.button.surface;
+package matlab.button;
 
-import matlab.button.AbstractCustomButton;
 import org.springframework.stereotype.Component;
 
 import java.awt.event.ActionEvent;

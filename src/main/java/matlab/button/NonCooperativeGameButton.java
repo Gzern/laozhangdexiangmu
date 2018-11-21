@@ -1,6 +1,5 @@
-package matlab.button.surface;
+package matlab.button;
 
-import matlab.button.AbstractCustomButton;
 import matlab.frame.NonCooperativeGameFrame;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

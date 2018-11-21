@@ -1,6 +1,10 @@
 package matlab.frame;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import matlab.surface.MatFrame;
+import org.apache.commons.io.FileUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.annotation.PostConstruct;
@@ -10,6 +14,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.io.File;
+import java.io.IOException;
 
 public abstract class AbstractProjectFrame extends JFrame implements IProjectFrame {
 
@@ -19,6 +25,8 @@ public abstract class AbstractProjectFrame extends JFrame implements IProjectFra
     private JScrollPane jScrollPane;
 
     private JFrame currentFrame;
+    private JTextField jTextField;
+    private JSONObject paramsJSONObject;
 
     @PostConstruct
     protected void init() {
@@ -45,14 +53,19 @@ public abstract class AbstractProjectFrame extends JFrame implements IProjectFra
     }
 
     /**
-     * 关闭默认设置为当前项目子窗口，显示主窗口
+     * 关闭
+     * 默认设置为关闭当前项目子窗口，显示主窗口
      */
     private void setDefaultListeners() {
         this.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
-                matFrame.setVisible(true);
-                currentFrame.setVisible(false);
+                try {
+                    matFrame.setVisible(true);
+                    currentFrame.setVisible(false);
+                } finally {
+                    clearParams();
+                }
             }
         });
     }
@@ -64,7 +77,7 @@ public abstract class AbstractProjectFrame extends JFrame implements IProjectFra
         JLabel jLabel1 = new JLabel("参数个数(必选)");
         JLabel jLabel2 = new JLabel("参数输入（格式为参数名:参数值）(可选)");
         JLabel jLabel3 = new JLabel("参数导入(可选)");
-        JTextField jTextField = new JTextField(20);
+        jTextField = new JTextField(20);
 
         JButton button4 = new JButton("导入参数配置文件");
 
@@ -72,7 +85,17 @@ public abstract class AbstractProjectFrame extends JFrame implements IProjectFra
             public void actionPerformed(ActionEvent e) {
                 JFileChooser jFileChooser = new JFileChooser();
                 jFileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
-                jFileChooser.showDialog(new JLabel(), "选择参数配置文件");
+                int res = jFileChooser.showDialog(new JLabel(), "选择参数配置文件");
+                if (res != JFileChooser.APPROVE_OPTION) {
+                    return;
+                }
+                File selectedFile = jFileChooser.getSelectedFile();
+                try {
+                    String text = FileUtils.readFileToString(selectedFile);
+                    getJTextArea().setText(text);
+                } catch (IOException e1) {
+                    JOptionPane.showMessageDialog(null, "参数文件导入失败,请检查文件格式!", "", JOptionPane.ERROR_MESSAGE);
+                }
             }
         });
 
@@ -103,7 +126,66 @@ public abstract class AbstractProjectFrame extends JFrame implements IProjectFra
         springLayout.putConstraint(SpringLayout.WEST, button4, 160, SpringLayout.WEST, contentPane);
     }
 
+    /**
+     * 清空参数配置区
+     */
+    private void clearParams() {
+        jTextField.setText("");
+        JTextArea area = getJTextArea();
+        if (area != null) {
+            area.setText("");
+        }
+    }
+
+    /**
+     * 校验参数配置区
+     */
+    protected final boolean checkParams() {
+        String numOfParams = jTextField.getText();
+        if (!StringUtils.isNumeric(numOfParams) || Integer.parseInt(numOfParams) < 0) {
+            JOptionPane.showMessageDialog(null, "参数个数不合法,请输入正确的数字!", "", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+        JTextArea area = getJTextArea();
+        if (area != null) {
+            String params = area.getText();
+            try {
+                paramsJSONObject = JSON.parseObject(params);
+                if (paramsJSONObject == null) {
+                    paramsJSONObject = new JSONObject();
+                }
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "参数输入格式不合法,请按正确的参数格式输入!", "", JOptionPane.ERROR_MESSAGE);
+                return false;
+            }
+            if (paramsJSONObject.keySet().size() != Integer.parseInt(numOfParams)) {
+                JOptionPane.showMessageDialog(null, "参数个数与参数输入不匹配,请输入正确的参数及其个数!", "", JOptionPane.ERROR_MESSAGE);
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private JTextArea getJTextArea() {
+        Component[] components = jScrollPane.getViewport().getComponents();
+        for (Component component : components) {
+            if (component instanceof JTextArea) {
+                JTextArea area = ((JTextArea) component);
+                return area;
+            }
+        }
+        return null;
+    }
+
     public void setCurrentFrame(JFrame currentFrame) {
         this.currentFrame = currentFrame;
+    }
+
+    public JTextField getjTextField() {
+        return jTextField;
+    }
+
+    public JSONObject getParamsJSONObject() {
+        return paramsJSONObject;
     }
 }

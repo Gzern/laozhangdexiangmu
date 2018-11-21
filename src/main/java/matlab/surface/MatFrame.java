@@ -1,9 +1,6 @@
 package matlab.surface;
 
 import matlab.button.IButtonFrame;
-import matlab.button.TestButton;
-import matlab.button.TextButton;
-import matlab.button.surface.NonCooperativeGameButton;
 import matlab.util.Constant;
 import matlab.util.SpringBeanHolder;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,19 +16,13 @@ public class MatFrame extends JFrame {
 
     @Autowired
     private SpringBeanHolder springBeanHolder;
-    @Autowired
-    private JTextField jTextField;
     /*@Autowired
-    private JScrollPane jScrollPane;*/
-    @Autowired
-    private TextButton textButton;
-    @Autowired
-    private TestButton testButton;
-    @Autowired
-    private NonCooperativeGameButton nonCooperativeGameButton;
+    private JTextField jTextField;*/
+    /*@Autowired
+    private NonCooperativeGameButton nonCooperativeGameButton;*/
 
 
-    private SpringLayout springLayout;
+    private LayoutManager gridLayout;
     private Panel panel;
 
 
@@ -54,8 +45,8 @@ public class MatFrame extends JFrame {
         this.setLocationRelativeTo(null);
         panel = new Panel();
         this.setContentPane(panel);
-        springLayout = new SpringLayout();
-        this.getContentPane().setLayout(springLayout);
+        gridLayout = new GridLayout(6, 6);
+        this.getContentPane().setLayout(gridLayout);
     }
 
     private void addListener() {
@@ -69,11 +60,9 @@ public class MatFrame extends JFrame {
     }
 
     private void addTextArea() {
-//        panel.add(jScrollPane);
     }
 
     private void addTextField() {
-        panel.add(jTextField);
     }
 
     private void initLayout() {
@@ -89,15 +78,14 @@ public class MatFrame extends JFrame {
         /**
          * BUTTON
          */
-        springLayout.putConstraint(SpringLayout.NORTH, testButton, 10, SpringLayout.NORTH, panel);
+        /*springLayout.putConstraint(SpringLayout.NORTH, testButton, 10, SpringLayout.NORTH, panel);
         springLayout.putConstraint(SpringLayout.EAST, testButton, -20, SpringLayout.EAST, panel);
 
         springLayout.putConstraint(SpringLayout.NORTH, textButton, 70, SpringLayout.NORTH, panel);
         springLayout.putConstraint(SpringLayout.EAST, textButton, -20, SpringLayout.EAST, panel);
 
         springLayout.putConstraint(SpringLayout.NORTH, nonCooperativeGameButton, 70, SpringLayout.NORTH, panel);
-        springLayout.putConstraint(SpringLayout.WEST, nonCooperativeGameButton, 20, SpringLayout.WEST, panel);
-
+        springLayout.putConstraint(SpringLayout.WEST, nonCooperativeGameButton, 20, SpringLayout.WEST, panel);*/
     }
 
 }

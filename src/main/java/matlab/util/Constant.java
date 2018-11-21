@@ -11,4 +11,6 @@ public interface Constant {
     String UNDER_LINE = "_";
 
     String NON_COOPERATIVE_GAME_BUTTON = "项目一";
+
+    String NON_COOPERATIVE_GAME_FRAME = "非合作博弈项目";
 }
