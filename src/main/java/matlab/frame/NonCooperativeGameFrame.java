@@ -1,5 +1,7 @@
 package matlab.frame;
 
+import com.alibaba.fastjson.JSONObject;
+import matlab.project.NonCooperativeGame;
 import matlab.util.Constant;
 import org.springframework.stereotype.Component;
 
@@ -34,7 +36,9 @@ public class NonCooperativeGameFrame extends AbstractProjectFrame {
                 if (!checkParams()) {
                     return;
                 }
-
+                int n = Integer.parseInt(getJTextField().getText());
+                JSONObject paramsJSONObject = getParamsJSONObject();
+                NonCooperativeGame.getInstance().spectrumAllocate(n, paramsJSONObject);
             }
         });
         button2.addActionListener(new ActionListener() {

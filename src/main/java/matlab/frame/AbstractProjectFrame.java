@@ -181,7 +181,7 @@ public abstract class AbstractProjectFrame extends JFrame implements IProjectFra
         this.currentFrame = currentFrame;
     }
 
-    public JTextField getjTextField() {
+    public JTextField getJTextField() {
         return jTextField;
     }
 
