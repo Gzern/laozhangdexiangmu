@@ -46,6 +46,9 @@ public class NonCooperativeGameFrame extends AbstractProjectFrame {
                 if (!checkParams()) {
                     return;
                 }
+                int n = Integer.parseInt(getJTextField().getText());
+                JSONObject paramsJSONObject = getParamsJSONObject();
+                NonCooperativeGame.getInstance().spectrumRuProfit(n, paramsJSONObject);
             }
         });
         button3.addActionListener(new ActionListener() {
@@ -53,6 +56,9 @@ public class NonCooperativeGameFrame extends AbstractProjectFrame {
                 if (!checkParams()) {
                     return;
                 }
+                int n = Integer.parseInt(getJTextField().getText());
+                JSONObject paramsJSONObject = getParamsJSONObject();
+                NonCooperativeGame.getInstance().spectrumPuProfit(n, paramsJSONObject);
             }
         });
 

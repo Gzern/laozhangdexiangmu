@@ -6,6 +6,8 @@ import com.mathworks.toolbox.javabuilder.MWArray;
 import com.mathworks.toolbox.javabuilder.MWClassID;
 import com.mathworks.toolbox.javabuilder.MWNumericArray;
 import spectrum.Spectrum;
+import spectrum_pu_Profit.PuProfit;
+import spectrum_ru_Profit.RuProfit;
 
 import javax.swing.*;
 import java.util.ArrayList;
@@ -33,19 +35,9 @@ public class NonCooperativeGame {
      * @param paramsJSONObject 参数
      */
     public void spectrumAllocate(int n, JSONObject paramsJSONObject) {
-        Object[] params = new Object[n];
+        Object[] params = JSONObject2Object(n, paramsJSONObject);
         try {
             Spectrum spectrum = new Spectrum();
-            for (int i = 0; i < params.length; i++) {
-                Object o = paramsJSONObject.get(paramsList.get(i));
-                if (null == o) throw new RuntimeException();
-                if (o instanceof JSONArray) {
-                    JSONArray jsonArray = paramsJSONObject.getJSONArray(paramsList.get(i));
-                    params[i] = new MWNumericArray(jsonArray.toArray(), MWClassID.DOUBLE);
-                } else {
-                    params[i] = o;
-                }
-            }
             spectrum.spectrum(params);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "参数输入配置不正确,请按正确的参数进行配置!", "", JOptionPane.ERROR_MESSAGE);
@@ -54,6 +46,49 @@ public class NonCooperativeGame {
                 MWArray.disposeArray(params[i]);
             }
         }
+    }
+
+    public void spectrumRuProfit(int n, JSONObject paramsJSONObject) {
+        Object[] params = JSONObject2Object(n, paramsJSONObject);
+        try {
+            RuProfit ruProfit = new RuProfit();
+            ruProfit.spectrum_ru_Profit(params);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "参数输入配置不正确,请按正确的参数进行配置!", "", JOptionPane.ERROR_MESSAGE);
+        } finally {
+            for (int i = 0; i < params.length; i++) {
+                MWArray.disposeArray(params[i]);
+            }
+        }
+    }
+
+    public void spectrumPuProfit(int n, JSONObject paramsJSONObject) {
+        Object[] params = JSONObject2Object(n, paramsJSONObject);
+        try {
+            PuProfit puProfit = new PuProfit();
+            puProfit.spectrum_pu_Profit(params);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "参数输入配置不正确,请按正确的参数进行配置!", "", JOptionPane.ERROR_MESSAGE);
+        } finally {
+            for (int i = 0; i < params.length; i++) {
+                MWArray.disposeArray(params[i]);
+            }
+        }
+    }
+
+    private Object[] JSONObject2Object(int n, JSONObject paramsJSONObject) {
+        Object[] params = new Object[n];
+        for (int i = 0; i < params.length; i++) {
+            Object o = paramsJSONObject.get(paramsList.get(i));
+            if (null == o) throw new RuntimeException();
+            if (o instanceof JSONArray) {
+                JSONArray jsonArray = paramsJSONObject.getJSONArray(paramsList.get(i));
+                params[i] = new MWNumericArray(jsonArray.toArray(), MWClassID.DOUBLE);
+            } else {
+                params[i] = o;
+            }
+        }
+        return params;
     }
 
     private static class SingleTon {
