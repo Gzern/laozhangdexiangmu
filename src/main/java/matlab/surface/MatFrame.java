@@ -16,12 +16,6 @@ public class MatFrame extends JFrame {
 
     @Autowired
     private SpringBeanHolder springBeanHolder;
-    /*@Autowired
-    private JTextField jTextField;*/
-    /*@Autowired
-    private NonCooperativeGameButton nonCooperativeGameButton;*/
-
-
     private LayoutManager gridLayout;
     private Panel panel;
 

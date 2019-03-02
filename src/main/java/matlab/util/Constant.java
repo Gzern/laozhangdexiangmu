@@ -2,15 +2,15 @@ package matlab.util;
 
 public interface Constant {
 
-    String FRAME_NAME = "演示程序";
+    String FRAME_NAME = "Demo Program";
 
-    String TEST_BUTTON = "TestButton";
+//    String TEST_BUTTON = "TestButton";
 
-    String TEXT_BUTTON = "change";
+//    String TEXT_BUTTON = "change";
 
     String UNDER_LINE = "_";
 
-    String NON_COOPERATIVE_GAME_BUTTON = "项目一";
+    String NON_COOPERATIVE_GAME_BUTTON = "Project No.1";
 
-    String NON_COOPERATIVE_GAME_FRAME = "非合作博弈项目";
+    String NON_COOPERATIVE_GAME_FRAME = "Project No.1";
 }

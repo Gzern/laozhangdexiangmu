@@ -1,20 +1,13 @@
 package matlab.frame;
 
-import com.alibaba.fastjson.JSONObject;
 import matlab.project.NonCooperativeGame;
 import matlab.util.Constant;
-import org.apache.commons.io.FileUtils;
 import org.springframework.stereotype.Component;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
 
 @Component
 public class NonCooperativeGameFrame extends AbstractProjectFrame {
@@ -28,24 +21,22 @@ public class NonCooperativeGameFrame extends AbstractProjectFrame {
 
         Container contentPane = this.getContentPane();
         SpringLayout springLayout = (SpringLayout) contentPane.getLayout();
-
+        final NonCooperativeGame nonCooperativeGame = NonCooperativeGame.getInstance();
 
         /**
          * 添加相应项目功能
          */
-        JButton button1 = new JButton("演示程序一");
-        JButton button2 = new JButton("演示程序二");
-        JButton button3 = new JButton("演示程序三");
-        JButton button4 = new JButton("参数导出");
+        JButton button1 = new JButton("Demo 1");
+        JButton button2 = new JButton("Demo 2");
+        JButton button3 = new JButton("Demo 3");
+        JButton button4 = new JButton("Params Export");
 
         button1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 if (!checkParams()) {
                     return;
                 }
-                int n = Integer.parseInt(getJTextField().getText());
-                JSONObject paramsJSONObject = getParamsJSONObject();
-                NonCooperativeGame.getInstance().spectrumAllocate(n, paramsJSONObject);
+                nonCooperativeGame.spectrumAllocate(getParamsJSONObject());
             }
         });
         button2.addActionListener(new ActionListener() {
@@ -53,9 +44,7 @@ public class NonCooperativeGameFrame extends AbstractProjectFrame {
                 if (!checkParams()) {
                     return;
                 }
-                int n = Integer.parseInt(getJTextField().getText());
-                JSONObject paramsJSONObject = getParamsJSONObject();
-                NonCooperativeGame.getInstance().spectrumRuProfit(n, paramsJSONObject);
+                nonCooperativeGame.spectrumRuProfit(getParamsJSONObject());
             }
         });
         button3.addActionListener(new ActionListener() {
@@ -63,9 +52,7 @@ public class NonCooperativeGameFrame extends AbstractProjectFrame {
                 if (!checkParams()) {
                     return;
                 }
-                int n = Integer.parseInt(getJTextField().getText());
-                JSONObject paramsJSONObject = getParamsJSONObject();
-                NonCooperativeGame.getInstance().spectrumPuProfit(n, paramsJSONObject);
+                nonCooperativeGame.spectrumPuProfit(getParamsJSONObject());
             }
         });
         button4.addActionListener(new ActionListener() {
@@ -73,7 +60,7 @@ public class NonCooperativeGameFrame extends AbstractProjectFrame {
                 if (!checkParams()) {
                     return;
                 }
-                String filePath = "C:\\Users\\king\\Desktop\\";
+                /*String filePath = "C:\\Users\\king\\Desktop\\";
                 String fileName = "params.txt";
                 JSONObject paramsJSONObject = getParamsJSONObject();
                 Set<String> keySet = paramsJSONObject.keySet();
@@ -89,6 +76,19 @@ public class NonCooperativeGameFrame extends AbstractProjectFrame {
                     e1.printStackTrace();
                     JOptionPane.showMessageDialog(null, "参数导出失败，请检查参数配置!", ""
                             , JOptionPane.ERROR_MESSAGE);
+                }*/
+                //运行NS2仿真
+                String command = "ns /home/slc/fangzhen/tcl/example.tcl";
+                Process process = null;
+                try {
+                    process = Runtime.getRuntime().exec(command);
+                    process.waitFor();
+                } catch (Exception e1) {
+                    e1.printStackTrace();
+                } finally {
+                    if (null != process) {
+                        process.destroy();
+                    }
                 }
             }
         });
