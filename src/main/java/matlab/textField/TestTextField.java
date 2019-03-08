@@ -9,6 +9,4 @@ public class TestTextField extends AbstractCustomTextField {
         this.setColumns(50);
     }
 
-
-
 }

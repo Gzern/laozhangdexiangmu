@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-@Component
+@Component("pro1")
 public class NonCooperativeGameButton extends AbstractCustomButton {
     @Autowired
     private NonCooperativeGameFrame nonCooperativeGameFrame;

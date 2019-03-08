@@ -23,7 +23,6 @@ public abstract class AbstractProjectFrame extends JFrame implements IProjectFra
     private MatFrame matFrame;
     @Autowired
     private JScrollPane jScrollPane;
-
     private JFrame currentFrame;
     private JTextField jTextField;
     private JSONObject paramsJSONObject;
@@ -189,10 +188,6 @@ public abstract class AbstractProjectFrame extends JFrame implements IProjectFra
     private void setCurrentFrame(JFrame currentFrame) {
         this.currentFrame = currentFrame;
     }
-
-//    protected JTextField getJTextField() {
-//        return jTextField;
-//    }
 
     protected JSONObject getParamsJSONObject() {
         return paramsJSONObject;

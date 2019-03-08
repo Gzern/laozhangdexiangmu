@@ -78,7 +78,7 @@ public class NonCooperativeGameFrame extends AbstractProjectFrame {
                             , JOptionPane.ERROR_MESSAGE);
                 }*/
                 //运行NS2仿真
-                String command = "ns /home/slc/fangzhen/tcl/example.tcl";
+                String command = "ns myaodv.tcl";
                 Process process = null;
                 try {
                     process = Runtime.getRuntime().exec(command);
