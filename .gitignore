@@ -9,3 +9,5 @@ target
 lib
 .jar
 .m
+.asv
+.fig
