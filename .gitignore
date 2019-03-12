@@ -7,7 +7,7 @@
 *.iml
 target
 lib
-.jar
-.m
-.asv
-.fig
+*.jar
+*.m
+*.asv
+*.fig
