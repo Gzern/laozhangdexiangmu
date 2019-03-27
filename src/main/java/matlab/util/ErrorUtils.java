@@ -14,4 +14,8 @@ public class ErrorUtils {
                 , JOptionPane.PLAIN_MESSAGE);
     }
 
+    public static void showPicError() {
+        JOptionPane.showMessageDialog(null, "系统错误！", ""
+                , JOptionPane.ERROR_MESSAGE);
+    }
 }

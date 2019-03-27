@@ -12,4 +12,18 @@ public interface IProject {
      */
     void executeMatlab(String fileName, JSONObject paramsJSONObject);
 
+    /**
+     * 执行各个项目的图片
+     *
+     * @param fileName
+     */
+    void executePic(String fileName);
+
+    /**
+     * 执行各个项目NS2
+     *
+     * @param fileName
+     */
+    void executeNS2(String fileName);
+
 }

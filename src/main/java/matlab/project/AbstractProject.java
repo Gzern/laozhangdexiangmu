@@ -7,7 +7,7 @@ import org.apache.commons.io.FileUtils;
 import java.io.File;
 import java.util.*;
 
-import static matlab.util.SimulationName.MATLAB_COMMAND;
+import static matlab.util.SimulationName.*;
 
 public abstract class AbstractProject implements IProject {
 
@@ -50,6 +50,31 @@ public abstract class AbstractProject implements IProject {
         }
     }
 
+    @Override
+    public void executePic(String filename) {
+        execute(new StringBuilder(PIC_COMMAND).append(filename).toString());
+    }
+
+    @Override
+    public void executeNS2(String filename) {
+        execute(new StringBuilder(NS2_COMMAND).append(filename).toString());
+    }
+
+    protected void execute(String command) {
+        Process process = null;
+        try {
+            process = Runtime.getRuntime().exec(command);
+            process.waitFor();
+        } catch (Exception e1) {
+            e1.printStackTrace();
+            ErrorUtils.showPicError();
+        } finally {
+            if (null != process) {
+                process.destroy();
+            }
+        }
+    }
+
     /**
      * 返回matlab仿真参数
      *
@@ -68,6 +93,7 @@ public abstract class AbstractProject implements IProject {
         }
         return map;
     }
+
 
     /**
      * @return 各个项目所需参数列表
