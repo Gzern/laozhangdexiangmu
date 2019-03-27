@@ -1,13 +1,12 @@
 package matlab.frame;
 
+import matlab.Listener.CheckActionListener;
 import matlab.project.NonCooperativeGame;
 import matlab.util.Constant;
 import org.springframework.stereotype.Component;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 @Component
 public class NonCooperativeGameFrame extends AbstractProjectFrame {
@@ -26,59 +25,52 @@ public class NonCooperativeGameFrame extends AbstractProjectFrame {
         /**
          * 添加相应项目功能
          */
-        JButton button1 = new JButton("Demo 1");
-        JButton button2 = new JButton("Demo 2");
-        JButton button3 = new JButton("Demo 3");
-        JButton button4 = new JButton("Params Export");
+        JButton button1 = new JButton("演示一");
+        JButton button2 = new JButton("演示二");
+        JButton button3 = new JButton("演示三");
+        JButton button4 = new JButton("NS2仿真演示");
+        JButton button5 = new JButton("仿真场景说明");
 
-        button1.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                if (!checkParams()) {
-                    return;
-                }
+        button1.addActionListener(new CheckActionListener(this) {
+            @Override
+            protected void performed() {
                 nonCooperativeGame.spectrumAllocate(getParamsJSONObject());
             }
         });
-        button2.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                if (!checkParams()) {
-                    return;
-                }
+        button2.addActionListener(new CheckActionListener(this) {
+            @Override
+            protected void performed() {
                 nonCooperativeGame.spectrumRuProfit(getParamsJSONObject());
             }
         });
-        button3.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                if (!checkParams()) {
-                    return;
-                }
+        button3.addActionListener(new CheckActionListener(this) {
+            @Override
+            protected void performed() {
                 nonCooperativeGame.spectrumPuProfit(getParamsJSONObject());
             }
         });
-        button4.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                if (!checkParams()) {
-                    return;
-                }
-                /*String filePath = "C:\\Users\\king\\Desktop\\";
-                String fileName = "params.txt";
-                JSONObject paramsJSONObject = getParamsJSONObject();
-                Set<String> keySet = paramsJSONObject.keySet();
-                List<String> list = new ArrayList<String>();
-                for (String key : keySet) {
-                    list.add(new StringBuilder(key).append("=").append(paramsJSONObject.getString(key)).toString());
-                }
-                try {
-                    FileUtils.writeLines(new File(filePath + fileName), list);
-                    JOptionPane.showMessageDialog(null, "参数导出完毕!", ""
-                            , JOptionPane.PLAIN_MESSAGE);
-                } catch (IOException e1) {
-                    e1.printStackTrace();
-                    JOptionPane.showMessageDialog(null, "参数导出失败，请检查参数配置!", ""
-                            , JOptionPane.ERROR_MESSAGE);
-                }*/
+        button4.addActionListener(new CheckActionListener(this) {
+            @Override
+            protected void performed() {
                 //运行NS2仿真
                 String command = "ns myaodv.tcl";
+                Process process = null;
+                try {
+                    process = Runtime.getRuntime().exec(command);
+                    process.waitFor();
+                } catch (Exception e1) {
+                    e1.printStackTrace();
+                } finally {
+                    if (null != process) {
+                        process.destroy();
+                    }
+                }
+            }
+        });
+        button5.addActionListener(new CheckActionListener(this) {
+            @Override
+            protected void performed() {
+                String command = "eog xxxx.png";
                 Process process = null;
                 try {
                     process = Runtime.getRuntime().exec(command);
@@ -98,6 +90,7 @@ public class NonCooperativeGameFrame extends AbstractProjectFrame {
         contentPane.add(button2);
         contentPane.add(button3);
         contentPane.add(button4);
+        contentPane.add(button5);
 
 
         /**
@@ -114,6 +107,9 @@ public class NonCooperativeGameFrame extends AbstractProjectFrame {
 
         springLayout.putConstraint(SpringLayout.NORTH, button4, 190, SpringLayout.NORTH, contentPane);
         springLayout.putConstraint(SpringLayout.EAST, button4, -50, SpringLayout.EAST, contentPane);
+
+        springLayout.putConstraint(SpringLayout.NORTH, button5, 230, SpringLayout.NORTH, contentPane);
+        springLayout.putConstraint(SpringLayout.EAST, button5, -50, SpringLayout.EAST, contentPane);
 
     }
 

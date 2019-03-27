@@ -9,6 +9,7 @@ import static matlab.util.SimulationName.*;
 
 public class NonCooperativeGame extends AbstractProject {
 
+    //每个项目对应的参数
     private static final List<String> paramsList;
 
     static {

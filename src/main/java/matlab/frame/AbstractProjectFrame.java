@@ -73,18 +73,18 @@ public abstract class AbstractProjectFrame extends JFrame implements IProjectFra
         Container contentPane = this.getContentPane();
         SpringLayout springLayout = (SpringLayout) contentPane.getLayout();
 
-        JLabel jLabel1 = new JLabel("Number of parameters(Required)");
-        JLabel jLabel2 = new JLabel("Parameter Input:(Optional)");
-        JLabel jLabel3 = new JLabel("Parameter Import(Optional)");
+        JLabel jLabel1 = new JLabel("参数个数(必选)");
+        JLabel jLabel2 = new JLabel("参数输入：(可选)");
+        JLabel jLabel3 = new JLabel("参数导入：(可选)");
         jTextField = new JTextField(5);
 
-        JButton button4 = new JButton("Import parameter configuration file");
+        JButton button4 = new JButton("导入参数配置文件");
 
         button4.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 JFileChooser jFileChooser = new JFileChooser();
                 jFileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
-                int res = jFileChooser.showDialog(new JLabel(), "Select parameter configuration file");
+                int res = jFileChooser.showDialog(new JLabel(), "选择参数配置文件");
                 if (res != JFileChooser.APPROVE_OPTION) {
                     return;
                 }
@@ -93,8 +93,7 @@ public abstract class AbstractProjectFrame extends JFrame implements IProjectFra
                     String text = FileUtils.readFileToString(selectedFile);
                     getJTextArea().setText(text);
                 } catch (IOException e1) {
-                    JOptionPane.showMessageDialog(null
-                            , "Parameter file import failed, please check file format!", ""
+                    JOptionPane.showMessageDialog(null, "参数文件导入失败，请检查文件格式！", ""
                             , JOptionPane.ERROR_MESSAGE);
                 }
             }
@@ -141,11 +140,10 @@ public abstract class AbstractProjectFrame extends JFrame implements IProjectFra
     /**
      * 校验参数配置区
      */
-    protected final boolean checkParams() {
+    public final boolean checkParams() {
         String numOfParams = jTextField.getText();
         if (!StringUtils.isNumeric(numOfParams) || Integer.parseInt(numOfParams) < 0) {
-            JOptionPane.showMessageDialog(null
-                    , "The number of parameters is invalid. Please enter the correct number!", ""
+            JOptionPane.showMessageDialog(null, "输入参数个数无效，请输入正确的数字！", ""
                     , JOptionPane.ERROR_MESSAGE);
             return false;
         }
@@ -158,15 +156,13 @@ public abstract class AbstractProjectFrame extends JFrame implements IProjectFra
                     paramsJSONObject = new JSONObject();
                 }
             } catch (Exception e) {
-                JOptionPane.showMessageDialog(null
-                        , "The parameter input format is invalid. Please enter the correct parameter format!"
+                JOptionPane.showMessageDialog(null, "输入参数格式无效，请输入正确的参数格式！"
                         , "", JOptionPane.ERROR_MESSAGE);
                 return false;
             }
             if (paramsJSONObject.keySet().size() != Integer.parseInt(numOfParams)) {
                 JOptionPane.showMessageDialog(null
-                        , "The number of parameters does not match the parameter input. " +
-                                "Please enter the correct parameters and their number!", ""
+                        , "输入参数个数不匹配，请输入正确的参数及数目！", ""
                         , JOptionPane.ERROR_MESSAGE);
                 return false;
             }
