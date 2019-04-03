@@ -68,6 +68,20 @@ public class NonCooperativeGame extends AbstractProject {
     }
 
     /**
+     * 系统接通率
+     */
+    public void spectrumConnectionRate(JSONObject paramsJSONObject) {
+        executeMatlab(NON_COOPERATIVE_GAME_SPECTRUM_CONNECTION_RATE, paramsJSONObject);
+    }
+
+    /**
+     * 系统接通率 PIC
+     */
+    public void spectrumConnectionRatePic() {
+        executePic(NON_COOPERATIVE_GAME_SPECTRUM_CONNECTION_RATE_PIC);
+    }
+
+    /**
      * 仿真场景
      */
     public void spectrumScenarioPic() {

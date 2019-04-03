@@ -27,4 +27,8 @@ public class SpringBeanHolder implements ApplicationContextAware {
         }
         return list;
     }
+
+    public <T> T getBeanByName(String beanName, Class<T> clazz) {
+        return applicationContext.getBean(beanName, clazz);
+    }
 }

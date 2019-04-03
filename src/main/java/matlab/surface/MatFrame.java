@@ -47,10 +47,14 @@ public class MatFrame extends JFrame {
     }
 
     private void addButton() {
-        List<IButtonFrame> beansByInterface = springBeanHolder.getBeansByInterface(IButtonFrame.class);
+        /*List<IButtonFrame> beansByInterface = springBeanHolder.getBeansByInterface(IButtonFrame.class);
         for (IButtonFrame buttonFrame : beansByInterface) {
             panel.add((JButton) buttonFrame);
-        }
+        }*/
+        panel.add(springBeanHolder.getBeanByName("pro1", JButton.class));
+        panel.add(springBeanHolder.getBeanByName("pro2", JButton.class));
+        panel.add(springBeanHolder.getBeanByName("pro3", JButton.class));
+        panel.add(springBeanHolder.getBeanByName("pro4", JButton.class));
     }
 
     private void addTextArea() {

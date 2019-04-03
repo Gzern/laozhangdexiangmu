@@ -25,12 +25,12 @@ public class NonCooperativeGameFrame extends AbstractProjectFrame {
         /**
          * 添加相应项目功能
          */
-        JButton button1 = new JButton("演示一");
-        JButton button2 = new JButton("演示二");
-        JButton button3 = new JButton("演示三");
+        JButton button1 = new JButton("认知系统频谱分配");
+        JButton button2 = new JButton("认知系统收益");
+        JButton button3 = new JButton("认知节点收益");
         JButton button4 = new JButton("系统容载量");
         JButton button5 = new JButton("接通率");
-        JButton button6 = new JButton("仿真场景说明");
+//        JButton button6 = new JButton("仿真场景说明");
 
         button1.addActionListener(new CheckActionListener(this) {
             @Override
@@ -54,16 +54,23 @@ public class NonCooperativeGameFrame extends AbstractProjectFrame {
             @Override
             protected void performed() {
                 //系统容载量
-                nonCooperativeGame.spectrumSystemCapacityPic();
+                nonCooperativeGame.spectrumSystemCapacity(null);
             }
         });
-        button6.addActionListener(new CheckActionListener(this) {
+        button5.addActionListener(new CheckActionListener(this) {
             @Override
             protected void performed() {
-                //仿真场景
-                nonCooperativeGame.spectrumScenarioPic();
+                //系统接通率
+                nonCooperativeGame.spectrumConnectionRate(null);
             }
         });
+//        button6.addActionListener(new CheckActionListener(this) {
+//            @Override
+//            protected void performed() {
+//                //仿真场景
+//                nonCooperativeGame.spectrumScenarioPic();
+//            }
+//        });
 
 
         contentPane.add(button1);
@@ -71,7 +78,7 @@ public class NonCooperativeGameFrame extends AbstractProjectFrame {
         contentPane.add(button3);
         contentPane.add(button4);
         contentPane.add(button5);
-        contentPane.add(button6);
+//        contentPane.add(button6);
 
 
         /**
@@ -92,8 +99,8 @@ public class NonCooperativeGameFrame extends AbstractProjectFrame {
         springLayout.putConstraint(SpringLayout.NORTH, button5, 230, SpringLayout.NORTH, contentPane);
         springLayout.putConstraint(SpringLayout.EAST, button5, -50, SpringLayout.EAST, contentPane);
 
-        springLayout.putConstraint(SpringLayout.NORTH, button6, 270, SpringLayout.NORTH, contentPane);
-        springLayout.putConstraint(SpringLayout.EAST, button6, -50, SpringLayout.EAST, contentPane);
+//        springLayout.putConstraint(SpringLayout.NORTH, button6, 270, SpringLayout.NORTH, contentPane);
+//        springLayout.putConstraint(SpringLayout.EAST, button6, -50, SpringLayout.EAST, contentPane);
 
     }
 

@@ -27,10 +27,10 @@ public class NS2Frame extends AbstractProjectFrame {
          */
         JButton button1 = new JButton("网络拓扑(六边形)");
         JButton button2 = new JButton("NS2(六边形)");
-        JButton button3 = new JButton("网络拓扑(2)");
-        JButton button4 = new JButton("NS2(2)");
-        JButton button5 = new JButton("网络拓扑(3)");
-        JButton button6 = new JButton("NS2(3)");
+        JButton button3 = new JButton("网络拓扑(四边形)");
+        JButton button4 = new JButton("NS2(四边形)");
+        JButton button5 = new JButton("网络拓扑(八边形)");
+        JButton button6 = new JButton("NS2(八边形)");
 
         JButton button7 = new JButton("接通率");
         JButton button8 = new JButton("系统容载量");

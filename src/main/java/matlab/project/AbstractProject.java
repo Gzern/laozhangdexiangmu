@@ -20,23 +20,25 @@ public abstract class AbstractProject implements IProject {
     public void executeMatlab(String fileName, JSONObject paramsJSONObject) {
         Process process = null;
         try {
-            Map<String, String> params = jSONObject2Params(paramsJSONObject);
-            File file = new File(fileName);
-            List<String> result = new LinkedList<>();
-            Set<String> keySet = params.keySet();
-            for (String line : FileUtils.readLines(file)) {
-                Iterator<String> iterator = keySet.iterator();
-                while (iterator.hasNext()) {
-                    String nextKey = iterator.next();
-                    if (line.contains(nextKey)) {
-                        //覆写当前值x=[2 1.5 1];
-                        line = new StringBuilder(nextKey).append(params.get(nextKey)).append(";").toString();
-                        iterator.remove();
+            if (paramsJSONObject != null) {
+                Map<String, String> params = jSONObject2Params(paramsJSONObject);
+                File file = new File(fileName);
+                List<String> result = new LinkedList<>();
+                Set<String> keySet = params.keySet();
+                for (String line : FileUtils.readLines(file)) {
+                    Iterator<String> iterator = keySet.iterator();
+                    while (iterator.hasNext()) {
+                        String nextKey = iterator.next();
+                        if (line.contains(nextKey)) {
+                            //覆写当前值x=[2 1.5 1];
+                            line = new StringBuilder(nextKey).append(params.get(nextKey)).append(";").toString();
+                            iterator.remove();
+                        }
                     }
+                    result.add(line);
                 }
-                result.add(line);
+                FileUtils.writeLines(file, result);
             }
-            FileUtils.writeLines(file, result);
             process = Runtime.getRuntime().exec(new StringBuilder(MATLAB_COMMAND)
                     .append(fileName, 0, fileName.lastIndexOf(".")).toString());
             process.waitFor();

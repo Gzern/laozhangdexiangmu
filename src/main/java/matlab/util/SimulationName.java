@@ -21,9 +21,11 @@ public interface SimulationName {
 
     String NON_COOPERATIVE_GAME_SPECTRUM_SYSTEM_CAPACITY = "spectrumbeta.m";
 
-    String NON_COOPERATIVE_GAME_SPECTRUM_SYSTEM_CAPACITY_PIC = "game_system_capacity.jpg";
+    String NON_COOPERATIVE_GAME_SPECTRUM_SYSTEM_CAPACITY_PIC = "game_system_capacity.png";
 
-    String NON_COOPERATIVE_GAME_SPECTRUM_CONNECTION_RATE_PIC = "game_connection_rate.jpg";
+    String NON_COOPERATIVE_GAME_SPECTRUM_CONNECTION_RATE = "jietonglv.m";
+
+    String NON_COOPERATIVE_GAME_SPECTRUM_CONNECTION_RATE_PIC = "game_connection_rate.png";
 
     String NON_COOPERATIVE_GAME_SPECTRUM_SCENARIO_PIC = "xxxx.png";
 
@@ -36,6 +38,15 @@ public interface SimulationName {
 
     //李颜良
     String SHOW = "show.m";
+
+    String COMPARE_CONNECTION_RATE_0 = "/home/slc/matlab_test/compare7/c_c0.png";
+    String COMPARE_CONNECTION_RATE_0_5 = "/home/slc/matlab_test/compare7/c_c1.png";
+    String COMPARE_CONNECTION_RATE_1 = "/home/slc/matlab_test/compare7/c_c2.png";
+
+    String COMPARE_SYSTEM_CAPACITY_0 = "/home/slc/matlab_test/compare7/l_c0.png";
+    String COMPARE_SYSTEM_CAPACITY_0_5 = "/home/slc/matlab_test/compare7/l_c1.png";
+    String COMPARE_SYSTEM_CAPACITY_1 = "/home/slc/matlab_test/compare7/l_c2.png";
+
 
     //单路超
 
