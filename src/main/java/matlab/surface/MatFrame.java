@@ -1,6 +1,5 @@
 package matlab.surface;
 
-import matlab.button.IButtonFrame;
 import matlab.util.Constant;
 import matlab.util.SpringBeanHolder;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +8,6 @@ import org.springframework.stereotype.Component;
 import javax.annotation.PostConstruct;
 import javax.swing.*;
 import java.awt.*;
-import java.util.List;
 
 @Component
 public class MatFrame extends JFrame {

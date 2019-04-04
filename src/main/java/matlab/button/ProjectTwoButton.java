@@ -2,13 +2,11 @@ package matlab.button;
 
 import matlab.frame.ProjectTwoFrame;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.DependsOn;
 import org.springframework.stereotype.Component;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-@DependsOn("pro1")
 @Component("pro2")
 public class ProjectTwoButton extends AbstractCustomButton {
 
@@ -24,4 +22,5 @@ public class ProjectTwoButton extends AbstractCustomButton {
             }
         });
     }
+
 }

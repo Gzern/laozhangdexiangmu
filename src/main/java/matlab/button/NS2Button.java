@@ -2,13 +2,11 @@ package matlab.button;
 
 import matlab.frame.NS2Frame;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.DependsOn;
 import org.springframework.stereotype.Component;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-@DependsOn("pro3")
 @Component("pro4")
 public class NS2Button extends AbstractCustomButton {
 

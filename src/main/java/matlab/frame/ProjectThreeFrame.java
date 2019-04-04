@@ -31,7 +31,6 @@ public class ProjectThreeFrame extends AbstractProjectFrame {
         JButton button6 = new JButton("系统容载量（完全重叠）");
 
         button1.addActionListener(new CheckActionListener(this) {
-
             @Override
             protected void performed() {
                 projectThree.compareCR_0();
@@ -39,7 +38,6 @@ public class ProjectThreeFrame extends AbstractProjectFrame {
         });
 
         button2.addActionListener(new CheckActionListener(this) {
-
             @Override
             protected void performed() {
                 projectThree.compareCR_0_5();
@@ -47,7 +45,6 @@ public class ProjectThreeFrame extends AbstractProjectFrame {
         });
 
         button3.addActionListener(new CheckActionListener(this) {
-
             @Override
             protected void performed() {
                 projectThree.compareCR_1();
@@ -55,7 +52,6 @@ public class ProjectThreeFrame extends AbstractProjectFrame {
         });
 
         button4.addActionListener(new CheckActionListener(this) {
-
             @Override
             protected void performed() {
                 projectThree.compareSC_0();
@@ -63,7 +59,6 @@ public class ProjectThreeFrame extends AbstractProjectFrame {
         });
 
         button5.addActionListener(new CheckActionListener(this) {
-
             @Override
             protected void performed() {
                 projectThree.compareSC_0_5();
@@ -71,7 +66,6 @@ public class ProjectThreeFrame extends AbstractProjectFrame {
         });
 
         button6.addActionListener(new CheckActionListener(this) {
-
             @Override
             protected void performed() {
                 projectThree.compareSC_1();
