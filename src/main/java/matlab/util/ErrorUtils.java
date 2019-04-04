@@ -15,7 +15,7 @@ public class ErrorUtils {
     }
 
     public static void showPicError() {
-        JOptionPane.showMessageDialog(null, "系统错误！", ""
+        JOptionPane.showMessageDialog(null, "系统图片错误！", ""
                 , JOptionPane.ERROR_MESSAGE);
     }
 }
