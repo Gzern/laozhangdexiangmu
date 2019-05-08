@@ -1,7 +1,5 @@
 package matlab.project;
 
-import com.alibaba.fastjson.JSONObject;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -65,47 +63,6 @@ public class NS2 extends AbstractProject {
 
     public void connectionRate() {
         executePic(NS2_CONNECTION_RATE_PIC);
-    }
-
-    /**
-     * 认知用户效用收益
-     *
-     * @param paramsJSONObject
-     */
-    public void spectrumRuProfit(JSONObject paramsJSONObject) {
-        executeMatlab(NON_COOPERATIVE_GAME_SPECTRUM_RU_PROFIT, paramsJSONObject);
-    }
-
-    /**
-     * 授权用户效用收益
-     *
-     * @param paramsJSONObject
-     */
-    public void spectrumPuProfit(JSONObject paramsJSONObject) {
-        executeMatlab(NON_COOPERATIVE_GAME_SPECTRUM_PU_PROFIT, paramsJSONObject);
-    }
-
-    /**
-     * 系统容载量
-     *
-     * @param paramsJSONObject
-     */
-    public void spectrumSystemCapacity(JSONObject paramsJSONObject) {
-        executeMatlab(NON_COOPERATIVE_GAME_SPECTRUM_SYSTEM_CAPACITY, paramsJSONObject);
-    }
-
-    /**
-     * 系统容载量 PIC
-     */
-    public void spectrumSystemCapacityPic() {
-        executePic(NON_COOPERATIVE_GAME_SPECTRUM_SYSTEM_CAPACITY_PIC);
-    }
-
-    /**
-     * 仿真场景
-     */
-    public void spectrumScenarioPic() {
-        executePic(NON_COOPERATIVE_GAME_SPECTRUM_SCENARIO_PIC);
     }
 
     @Override

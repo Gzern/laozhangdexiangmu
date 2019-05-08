@@ -15,9 +15,9 @@ public class NonCooperativeGame extends AbstractProject {
     static {
         //参数列表
         paramsList = new ArrayList<String>();
-        paramsList.add("afa");
+        /*paramsList.add("afa");
         paramsList.add("prices");
-        paramsList.add("wn");
+        paramsList.add("wn");*/
     }
 
     public static NonCooperativeGame getInstance() {
@@ -61,10 +61,31 @@ public class NonCooperativeGame extends AbstractProject {
     }
 
     /**
-     * 系统容载量 PIC
+     * 系统容载量对比图 PIC
      */
     public void spectrumSystemCapacityPic() {
-        executePic(NON_COOPERATIVE_GAME_SPECTRUM_SYSTEM_CAPACITY_PIC);
+        executePic(NON_COOPERATIVE_GAME_SPECTRUM_SYSTEM_CAPACITY_CONTRAST_PIC);
+    }
+
+    /**
+     * 系统容载量对比图 0 PIC
+     */
+    public void spectrumSystemCapacity0Pic() {
+        executePic(SPECTRUM_SYSTEM_CAPACITY_CONTRAST_0_PIC);
+    }
+
+    /**
+     * 系统容载量对比图 0.5 PIC
+     */
+    public void spectrumSystemCapacity0_5Pic() {
+        executePic(SPECTRUM_SYSTEM_CAPACITY_CONTRAST_0_5_PIC);
+    }
+
+    /**
+     * 系统容载量对比图 1 PIC
+     */
+    public void spectrumSystemCapacity1Pic() {
+        executePic(SPECTRUM_SYSTEM_CAPACITY_CONTRAST_1_PIC);
     }
 
     /**
@@ -82,10 +103,24 @@ public class NonCooperativeGame extends AbstractProject {
     }
 
     /**
-     * 仿真场景
+     * 仿真场景分离
      */
-    public void spectrumScenarioPic() {
-        executePic(NON_COOPERATIVE_GAME_SPECTRUM_SCENARIO_PIC);
+    public void separationPic() {
+        executePic(SPECTRUM_SCENARIO_SEPARATION_PIC);
+    }
+
+    /**
+     * 仿真场景渗透
+     */
+    public void penetrationPic() {
+        executePic(SPECTRUM_SCENARIO_PENETRATION_PIC);
+    }
+
+    /**
+     * 仿真场景融合
+     */
+    public void fusionPic() {
+        executePic(SPECTRUM_SCENARIO_FUSION_PIC);
     }
 
     @Override

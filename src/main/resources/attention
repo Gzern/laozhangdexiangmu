@@ -1,0 +1,10 @@
+##  打成jar包，断网运行时spring.xml会报错invalid 此时需要配置xsd路径
+
+将jar包解压，进入到META-INF目录下，打开spring.schemas文件
+
+添加如下xsd本地配置路径 即可解决断网运行报错问题
+
+http\://www.springframework.org/schema/beans/spring-beans.xsd=org/springframework/beans/factory/xml/spring-beans-4.2.xsd
+http\://www.springframework.org/schema/tool/spring-tool-4.2.xsd=org/springframework/beans/factory/xml/spring-tool-4.2.xsd
+
+

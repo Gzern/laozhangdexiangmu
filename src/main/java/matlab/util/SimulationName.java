@@ -21,13 +21,18 @@ public interface SimulationName {
 
     String NON_COOPERATIVE_GAME_SPECTRUM_SYSTEM_CAPACITY = "spectrumbeta.m";
 
-    String NON_COOPERATIVE_GAME_SPECTRUM_SYSTEM_CAPACITY_PIC = "game_system_capacity.png";
+    String NON_COOPERATIVE_GAME_SPECTRUM_SYSTEM_CAPACITY_CONTRAST_PIC = "sys_capa_2.png";
+    String SPECTRUM_SYSTEM_CAPACITY_CONTRAST_0_PIC = "sc_0_new.png";
+    String SPECTRUM_SYSTEM_CAPACITY_CONTRAST_0_5_PIC = "sc_0_5_new.png";
+    String SPECTRUM_SYSTEM_CAPACITY_CONTRAST_1_PIC = "sc_1_new.png";
 
     String NON_COOPERATIVE_GAME_SPECTRUM_CONNECTION_RATE = "jietonglv.m";
 
-    String NON_COOPERATIVE_GAME_SPECTRUM_CONNECTION_RATE_PIC = "game_connection_rate.png";
+    String NON_COOPERATIVE_GAME_SPECTRUM_CONNECTION_RATE_PIC = "cr_2.png";
 
-    String NON_COOPERATIVE_GAME_SPECTRUM_SCENARIO_PIC = "xxxx.png";
+    String SPECTRUM_SCENARIO_SEPARATION_PIC = "separation.png";
+    String SPECTRUM_SCENARIO_PENETRATION_PIC = "penetration.png";
+    String SPECTRUM_SCENARIO_FUSION_PIC = "fusion.png";
 
     //胡光耀仿真
     String HU_GUANG_YAO_1 = "channel.m";
