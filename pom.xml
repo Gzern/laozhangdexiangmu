@@ -58,30 +58,6 @@
             <version>2.4</version>
         </dependency>
 
-        <!--<dependency>
-            <groupId>bupt</groupId>
-            <artifactId>javabuilder</artifactId>
-            <version>1.0.0</version>
-        </dependency>
-
-        <dependency>
-            <groupId>bupt</groupId>
-            <artifactId>spectrum</artifactId>
-            <version>1.0.0</version>
-        </dependency>
-
-        <dependency>
-            <groupId>bupt</groupId>
-            <artifactId>spectrum_pu_Profit</artifactId>
-            <version>1.0.0</version>
-        </dependency>
-
-        <dependency>
-            <groupId>bupt</groupId>
-            <artifactId>spectrum_ru_Profit</artifactId>
-            <version>1.0.0</version>
-        </dependency>-->
-
     </dependencies>
 
 

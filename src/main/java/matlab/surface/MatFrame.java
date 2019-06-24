@@ -53,6 +53,9 @@ public class MatFrame extends JFrame {
         panel.add(springBeanHolder.getBeanByName("pro2", JButton.class));
         panel.add(springBeanHolder.getBeanByName("pro3", JButton.class));
         panel.add(springBeanHolder.getBeanByName("pro4", JButton.class));
+        panel.add(springBeanHolder.getBeanByName("pro5", JButton.class));
+        panel.add(springBeanHolder.getBeanByName("pro6", JButton.class));
+        panel.add(springBeanHolder.getBeanByName("pro7", JButton.class));
     }
 
     private void addTextArea() {

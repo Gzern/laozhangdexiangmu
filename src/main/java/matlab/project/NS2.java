@@ -23,46 +23,21 @@ public class NS2 extends AbstractProject {
     }
 
 
-    public void networkTopologyModel_1() {
-        executePic(NS2_NETWORK_TOPOLOGY_MODEL_1_PIC);
+    public void networkTopologyModel(String dirName, int num, String beta, String type) {
+        executePic(String.format(HEX_NK_TP_FORMAT, dirName, num, beta, type, num, beta));
     }
 
-    public void networkTopologyModel_2() {
-        executePic(NS2_NETWORK_TOPOLOGY_MODEL_2_PIC);
+    public void networkCommunicationSimulation(String dirName, int num, String beta, String type) {
+        executeNS2(String.format(HEX_NK_NS_FORMAT, dirName, num, beta, type, num, beta));
     }
 
-    public void networkTopologyModel_3() {
-        executePic(NS2_NETWORK_TOPOLOGY_MODEL_3_PIC);
+
+    public void systemCapacity(int num, int beta) {
+        executePic(String.format(NS2_SYSTEM_CAPACITY_FORMAT, num, beta));
     }
 
-    public void networkCommunicationSimulation_1() {
-        executeNS2(NS2_NETWORK_COMMUNICATION_SIMULATION_1_TCL);
-    }
-
-    public void networkCommunicationSimulation_2() {
-        executeNS2(NS2_NETWORK_COMMUNICATION_SIMULATION_2_TCL);
-    }
-
-    public void networkCommunicationSimulation_3() {
-        executeNS2(NS2_NETWORK_COMMUNICATION_SIMULATION_3_TCL);
-    }
-
-    public void generateResultData_1() {
-        String command = "gnuplot " + NS2_GENEATE_RESULT_DATA_1_POLT;
-        execute(command);
-    }
-
-    public void generateResultData_2() {
-        String command = "gnuplot " + NS2_GENEATE_RESULT_DATA_2_POLT;
-        execute(command);
-    }
-
-    public void systemCapacity() {
-        executePic(NS2_SYSTEM_CAPACITY_PIC);
-    }
-
-    public void connectionRate() {
-        executePic(NS2_CONNECTION_RATE_PIC);
+    public void connectionRate(int num, int beta) {
+        executePic(String.format(NS2_CONNECTION_RATE_FORMAT, num, beta));
     }
 
     @Override

@@ -24,32 +24,6 @@ public class NonCooperativeGame extends AbstractProject {
         return SingleTon.nonCooperativeGame;
     }
 
-    /**
-     * 频谱分配
-     *
-     * @param paramsJSONObject
-     */
-    public void spectrumAllocate(JSONObject paramsJSONObject) {
-        executeMatlab(NON_COOPERATIVE_GAME_SPECTRUM_ALLOCATE, paramsJSONObject);
-    }
-
-    /**
-     * 认知用户效用收益
-     *
-     * @param paramsJSONObject
-     */
-    public void spectrumRuProfit(JSONObject paramsJSONObject) {
-        executeMatlab(NON_COOPERATIVE_GAME_SPECTRUM_RU_PROFIT, paramsJSONObject);
-    }
-
-    /**
-     * 授权用户效用收益
-     *
-     * @param paramsJSONObject
-     */
-    public void spectrumPuProfit(JSONObject paramsJSONObject) {
-        executeMatlab(NON_COOPERATIVE_GAME_SPECTRUM_PU_PROFIT, paramsJSONObject);
-    }
 
     /**
      * 系统容载量
@@ -57,7 +31,7 @@ public class NonCooperativeGame extends AbstractProject {
      * @param paramsJSONObject
      */
     public void spectrumSystemCapacity(JSONObject paramsJSONObject) {
-        executeMatlab(NON_COOPERATIVE_GAME_SPECTRUM_SYSTEM_CAPACITY, paramsJSONObject);
+        executeMatlab(NON_COOPERATIVE_GAME_SPECTRUM_SYSTEM_CAPACITY_CONTRAST, paramsJSONObject);
     }
 
     /**
@@ -67,12 +41,18 @@ public class NonCooperativeGame extends AbstractProject {
         executePic(NON_COOPERATIVE_GAME_SPECTRUM_SYSTEM_CAPACITY_CONTRAST_PIC);
     }
 
+
     /**
      * 系统容载量对比图 0 PIC
      */
     public void spectrumSystemCapacity0Pic() {
         executePic(SPECTRUM_SYSTEM_CAPACITY_CONTRAST_0_PIC);
     }
+
+    public void spectrumSystemCapacity0(JSONObject object) {
+        executeMatlab(SPECTRUM_SYSTEM_CAPACITY_CONTRAST_0, object);
+    }
+
 
     /**
      * 系统容载量对比图 0.5 PIC
@@ -81,11 +61,19 @@ public class NonCooperativeGame extends AbstractProject {
         executePic(SPECTRUM_SYSTEM_CAPACITY_CONTRAST_0_5_PIC);
     }
 
+    public void spectrumSystemCapacity0_5(JSONObject object) {
+        executeMatlab(SPECTRUM_SYSTEM_CAPACITY_CONTRAST_0_5, object);
+    }
+
     /**
      * 系统容载量对比图 1 PIC
      */
     public void spectrumSystemCapacity1Pic() {
         executePic(SPECTRUM_SYSTEM_CAPACITY_CONTRAST_1_PIC);
+    }
+
+    public void spectrumSystemCapacity1(JSONObject object) {
+        executeMatlab(SPECTRUM_SYSTEM_CAPACITY_CONTRAST_1, object);
     }
 
     /**

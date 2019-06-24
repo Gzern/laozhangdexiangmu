@@ -1,77 +1,68 @@
 package matlab.util;
 
 /**
- * matlab仿真代码.m文件
+ * matlab和ns2仿真代码.m文件
  */
 public interface SimulationName {
 
     //运行matlab命令
     String MATLAB_COMMAND = "matlab -nodesktop -nosplash -r ";
     //运行图片命令
-    String PIC_COMMAND = "eog ";
+    String PIC_COMMAND = "display ";
     //运行NS2命令
     String NS2_COMMAND = "ns ";
 
-    //王超
-    String NON_COOPERATIVE_GAME_SPECTRUM_ALLOCATE = "spectrum.m";
+    //project 1
 
-    String NON_COOPERATIVE_GAME_SPECTRUM_RU_PROFIT = "spectrum_ru_Profit.m";
 
-    String NON_COOPERATIVE_GAME_SPECTRUM_PU_PROFIT = "spectrum_pu_Profit.m";
-
-    String NON_COOPERATIVE_GAME_SPECTRUM_SYSTEM_CAPACITY = "spectrumbeta.m";
-
-    String NON_COOPERATIVE_GAME_SPECTRUM_SYSTEM_CAPACITY_CONTRAST_PIC = "sys_capa_2.png";
-    String SPECTRUM_SYSTEM_CAPACITY_CONTRAST_0_PIC = "sc_0_new.png";
-    String SPECTRUM_SYSTEM_CAPACITY_CONTRAST_0_5_PIC = "sc_0_5_new.png";
-    String SPECTRUM_SYSTEM_CAPACITY_CONTRAST_1_PIC = "sc_1_new.png";
-
+    String NON_COOPERATIVE_GAME_SPECTRUM_SYSTEM_CAPACITY_CONTRAST_PIC = "/home/slc/matlab_test/sys_capa_2.png";
+    String NON_COOPERATIVE_GAME_SPECTRUM_SYSTEM_CAPACITY_CONTRAST = "spectrumbeta_three.m";
+    String SPECTRUM_SYSTEM_CAPACITY_CONTRAST_0_PIC = "/home/slc/matlab_test/sc_0_new.png";
+    String SPECTRUM_SYSTEM_CAPACITY_CONTRAST_0 = "spectrumbeta_0.m";
+    String SPECTRUM_SYSTEM_CAPACITY_CONTRAST_0_5_PIC = "/home/slc/matlab_test/sc_0_5_new.png";
+    String SPECTRUM_SYSTEM_CAPACITY_CONTRAST_0_5 = "spectrumbeta_0_5.m";
+    String SPECTRUM_SYSTEM_CAPACITY_CONTRAST_1_PIC = "/home/slc/matlab_test/sc_1_new.png";
+    String SPECTRUM_SYSTEM_CAPACITY_CONTRAST_1 = "spectrumbeta_1.m";
     String NON_COOPERATIVE_GAME_SPECTRUM_CONNECTION_RATE = "jietonglv.m";
+    String NON_COOPERATIVE_GAME_SPECTRUM_CONNECTION_RATE_PIC = "/home/slc/matlab_test/cr_2.png";
+    String SPECTRUM_SCENARIO_SEPARATION_PIC = "/home/slc/matlab_test/separation.png";
+    String SPECTRUM_SCENARIO_PENETRATION_PIC = "/home/slc/matlab_test/penetration.png";
+    String SPECTRUM_SCENARIO_FUSION_PIC = "/home/slc/matlab_test/fusion.png";
 
-    String NON_COOPERATIVE_GAME_SPECTRUM_CONNECTION_RATE_PIC = "cr_2.png";
+    //project 2
+    String P2_CAPACITY_0 = "cr_0_rongzai.m";
+    String P2_CAPACITY_0_5 = "cr_0_5_rongzai.m";
+    String P2_CAPACITY_1 = "cr_1_rongzai.m";
 
-    String SPECTRUM_SCENARIO_SEPARATION_PIC = "separation.png";
-    String SPECTRUM_SCENARIO_PENETRATION_PIC = "penetration.png";
-    String SPECTRUM_SCENARIO_FUSION_PIC = "fusion.png";
+    String P2_CONNECT_0 = "cr_0_jietong.m";
+    String P2_CONNECT_0_5 = "cr_0_5_jietong.m";
+    String P2_CONNECT_1 = "cr_1_jietong.m";
 
-    //胡光耀仿真
-    String HU_GUANG_YAO_1 = "channel.m";
-
-    String HU_GUANG_YAO_2 = "power_allocation.m";
-
-    String HU_GUANG_YAO_3 = "resource.m";
-
-    //李颜良
+    //project 3
     String SHOW = "show.m";
 
-    String COMPARE_CONNECTION_RATE_0 = "/home/slc/matlab_test/compare7/c_c0.png";
-    String COMPARE_CONNECTION_RATE_0_5 = "/home/slc/matlab_test/compare7/c_c1.png";
-    String COMPARE_CONNECTION_RATE_1 = "/home/slc/matlab_test/compare7/c_c2.png";
+    String COMPARE_CONNECTION_RATE_0 = "/home/slc/matlab_test/compare7/c_c0.jpg";
+    String COMPARE_CONNECTION_RATE_0_5 = "/home/slc/matlab_test/compare7/c_c1.jpg";
+    String COMPARE_CONNECTION_RATE_1 = "/home/slc/matlab_test/compare7/c_c2.jpg";
 
-    String COMPARE_SYSTEM_CAPACITY_0 = "/home/slc/matlab_test/compare7/l_c0.png";
-    String COMPARE_SYSTEM_CAPACITY_0_5 = "/home/slc/matlab_test/compare7/l_c1.png";
-    String COMPARE_SYSTEM_CAPACITY_1 = "/home/slc/matlab_test/compare7/l_c2.png";
+    String COMPARE_SYSTEM_CAPACITY_0 = "/home/slc/matlab_test/compare7/l_c0.jpg";
+    String COMPARE_SYSTEM_CAPACITY_0_5 = "/home/slc/matlab_test/compare7/l_c1.jpg";
+    String COMPARE_SYSTEM_CAPACITY_1 = "/home/slc/matlab_test/compare7/l_c2.jpg";
 
 
-    //单路超
+    //project 4
 
-    //网络拓扑模型
-    String NS2_NETWORK_TOPOLOGY_MODEL_1_PIC = "/home/slc/matlab_test/ns2/NetworkTopologyModel/1.jpg";
-    String NS2_NETWORK_TOPOLOGY_MODEL_2_PIC = "/home/slc/matlab_test/ns2/NetworkTopologyModel/2.jpg";
-    String NS2_NETWORK_TOPOLOGY_MODEL_3_PIC = "/home/slc/matlab_test/ns2/NetworkTopologyModel/3.jpg";
+    String HEX_NK_TP_FORMAT = "/home/slc/matlab_test/ns2/%s/%dk=%s/%s%dk=%s.PNG";
+    String HEX_NK_NS_FORMAT = "/home/slc/matlab_test/ns2/%s/%dk=%s/%s%dk=%s.tcl";
 
-    //ns2仿真程序
-    String NS2_NETWORK_COMMUNICATION_SIMULATION_1_TCL = "/home/slc/matlab_test/ns2/NetworkCommunicationSimulation/1.tcl";
-    String NS2_NETWORK_COMMUNICATION_SIMULATION_2_TCL = "/home/slc/matlab_test/ns2/NetworkCommunicationSimulation/2.tcl";
-    String NS2_NETWORK_COMMUNICATION_SIMULATION_3_TCL = "/home/slc/matlab_test/ns2/NetworkCommunicationSimulation/3.tcl";
+    String HEX = "Hexagonal_cellular_topology";
+    String OCT = "Octagonal_topology";
+    String SQU = "Square_Topology";
 
-    //生成结果数据
-    String NS2_GENEATE_RESULT_DATA_1_POLT = "/home/slc/matlab_test/ns2/GenerateResultData/data1/data.plot";
-    String NS2_GENEATE_RESULT_DATA_2_POLT = "/home/slc/matlab_test/ns2/GenerateResultData/data2/data.plot";
 
     //接通率
-    String NS2_SYSTEM_CAPACITY_PIC = "/home/slc/matlab_test/ns2/GenerateResultData/data1/data.gif";
+    String NS2_SYSTEM_CAPACITY_FORMAT = "/home/slc/matlab_test/ns2/test1/1/C%dk=%d/data2.gif";
     //容载量
-    String NS2_CONNECTION_RATE_PIC = "/home/slc/matlab_test/ns2/GenerateResultData/data2/data2.gif";
+    String NS2_CONNECTION_RATE_FORMAT = "/home/slc/matlab_test/ns2/test1/1/U%dk=%d/data.gif";
 
 }

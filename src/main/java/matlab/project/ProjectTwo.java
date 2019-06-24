@@ -23,25 +23,30 @@ public class ProjectTwo extends AbstractProject {
         return ProjectTwo.SingleTon.projectTwo;
     }
 
-    /**
-     * @param paramsJSONObject
-     */
-    public void channel(JSONObject paramsJSONObject) {
-        executeMatlab(HU_GUANG_YAO_1, paramsJSONObject);
+
+    public void capacity_0(JSONObject paramsJSONObject) {
+        executeMatlab(P2_CAPACITY_0, paramsJSONObject);
     }
 
-    /**
-     * @param paramsJSONObject
-     */
-    public void powerAllocation(JSONObject paramsJSONObject) {
-        executeMatlab(HU_GUANG_YAO_2, paramsJSONObject);
+    public void connect_0(JSONObject paramsJSONObject) {
+        executeMatlab(P2_CONNECT_0, paramsJSONObject);
     }
 
-    /**
-     * @param paramsJSONObject
-     */
-    public void resource(JSONObject paramsJSONObject) {
-        executeMatlab(HU_GUANG_YAO_3, paramsJSONObject);
+
+    public void capacity_0_5(JSONObject paramsJSONObject) {
+        executeMatlab(P2_CAPACITY_0_5, paramsJSONObject);
+    }
+
+    public void connect_0_5(JSONObject paramsJSONObject) {
+        executeMatlab(P2_CONNECT_0_5, paramsJSONObject);
+    }
+
+    public void capacity_1(JSONObject paramsJSONObject) {
+        executeMatlab(P2_CAPACITY_1, paramsJSONObject);
+    }
+
+    public void connect_1(JSONObject paramsJSONObject) {
+        executeMatlab(P2_CONNECT_1, paramsJSONObject);
     }
 
     @Override

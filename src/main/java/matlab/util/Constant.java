@@ -15,7 +15,10 @@ public interface Constant {
 
     String PROJECT_THREE_BUTTON = "项目三";
 
-    String N_S2_BUTTON = "NS2";
+    String N_S2_HEX_BUTTON = "NS2 Hexagonal topology";
+    String N_S2_OCT_BUTTON = "NS2 Octagonal topology";
+    String N_S2_SQU_BUTTON = "NS2 Square Topology";
+    String N_S2_CAPACITY_BUTTON = "NS2";
 
 
     /**

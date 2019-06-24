@@ -43,7 +43,7 @@ public class NonCooperativeGameFrame extends AbstractProjectFrame {
         button2.addActionListener(new CheckActionListener(this) {
             @Override
             protected void performed() {
-                nonCooperativeGame.spectrumSystemCapacity0Pic();
+                nonCooperativeGame.spectrumSystemCapacity0(null);
             }
         });
         button3.addActionListener(new CheckActionListener(this) {
@@ -56,7 +56,7 @@ public class NonCooperativeGameFrame extends AbstractProjectFrame {
             @Override
             protected void performed() {
                 //系统容载量
-                nonCooperativeGame.spectrumSystemCapacity0_5Pic();
+                nonCooperativeGame.spectrumSystemCapacity0_5(null);
             }
         });
         button5.addActionListener(new CheckActionListener(this) {
@@ -68,19 +68,19 @@ public class NonCooperativeGameFrame extends AbstractProjectFrame {
         button6.addActionListener(new CheckActionListener(this) {
             @Override
             protected void performed() {
-                nonCooperativeGame.spectrumSystemCapacity1Pic();
+                nonCooperativeGame.spectrumSystemCapacity1(null);
             }
         });
         button7.addActionListener(new CheckActionListener(this) {
             @Override
             protected void performed() {
-                nonCooperativeGame.spectrumSystemCapacityPic();
+                nonCooperativeGame.spectrumSystemCapacity(null);
             }
         });
         button8.addActionListener(new CheckActionListener(this) {
             @Override
             protected void performed() {
-                nonCooperativeGame.spectrumConnectionRatePic();
+                nonCooperativeGame.spectrumConnectionRate(null);
             }
         });
 

@@ -1,17 +1,25 @@
 package matlab.button;
 
 import matlab.frame.NS2Frame;
+import matlab.util.SimulationName;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-@Component("pro4")
-public class NS2Button extends AbstractCustomButton {
+@Component("pro6")
+public class NS2SquButton extends AbstractCustomButton {
 
     @Autowired
     private NS2Frame ns2Frame;
+
+    @PostConstruct
+    public void before() {
+        ns2Frame.setDirName(SimulationName.SQU);
+        ns2Frame.setType("S");
+    }
 
     protected void addListener() {
         this.addActionListener(new ActionListener() {

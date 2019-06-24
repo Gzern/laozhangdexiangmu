@@ -3,26 +3,14 @@ package matlab.frame;
 import matlab.Listener.CheckActionListener;
 import matlab.project.NS2;
 import matlab.util.Constant;
-import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import javax.swing.*;
 import java.awt.*;
 
 @Component
-@Scope("prototype")
-public class NS2Frame extends AbstractProjectFrame {
+public class NS2CapFrame extends AbstractProjectFrame {
 
-    private String dirName;
-    private String type;
-
-    public void setDirName(String dirName) {
-        this.dirName = dirName;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
 
     /**
      * 对于每个项目 布局不同的按钮
@@ -37,90 +25,90 @@ public class NS2Frame extends AbstractProjectFrame {
         /**
          * 添加相应项目功能
          */
-        JButton button1 = new JButton("双网络拓扑(0%)");
-        JButton button2 = new JButton("NS2(0%)");
-        JButton button3 = new JButton("双网络拓扑(50%)");
-        JButton button4 = new JButton("NS2(50%)");
-        JButton button5 = new JButton("双网络拓扑(100%)");
-        JButton button6 = new JButton("NS2(100%)");
-        JButton button7 = new JButton("三网络拓扑(0%)");
-        JButton button8 = new JButton("NS2(0%)");
-        JButton button9 = new JButton("三网络拓扑(50%)");
-        JButton button10 = new JButton("NS2(50%)");
-        JButton button11 = new JButton("三网络拓扑(100%)");
-        JButton button12 = new JButton("NS2(100%)");
+        JButton button1 = new JButton("双网络系统容载量(0%)");
+        JButton button2 = new JButton("双网络系统容载量(50%)");
+        JButton button3 = new JButton("双网络系统容载量(100%)");
+        JButton button4 = new JButton("三网络系统容载量(0%)");
+        JButton button5 = new JButton("三网络系统容载量(50%)");
+        JButton button6 = new JButton("三网络系统容载量(100%)");
+        JButton button7 = new JButton("双网络接通率(0%)");
+        JButton button8 = new JButton("双网络接通率(50%)");
+        JButton button9 = new JButton("双网络接通率(100%)");
+        JButton button10 = new JButton("三网络接通率(0%)");
+        JButton button11 = new JButton("三网络接通率(50%)");
+        JButton button12 = new JButton("三网络接通率(100%)");
 
 
         button1.addActionListener(new CheckActionListener(this) {
             @Override
             protected void performed() {
-                ns2.networkTopologyModel(dirName, 2, "0", type);
+                ns2.systemCapacity(2, 0);
             }
         });
         button2.addActionListener(new CheckActionListener(this) {
             @Override
             protected void performed() {
-                ns2.networkCommunicationSimulation(dirName, 2, "0", type);
+                ns2.systemCapacity(2, 50);
             }
         });
         button3.addActionListener(new CheckActionListener(this) {
             @Override
             protected void performed() {
-                ns2.networkTopologyModel(dirName, 2, "0.5", type);
+                ns2.systemCapacity(2, 100);
             }
         });
         button4.addActionListener(new CheckActionListener(this) {
             @Override
             protected void performed() {
-                ns2.networkCommunicationSimulation(dirName, 2, "0.5", type);
+                ns2.systemCapacity(3, 0);
             }
         });
         button5.addActionListener(new CheckActionListener(this) {
             @Override
             protected void performed() {
-                ns2.networkTopologyModel(dirName, 2, "1", type);
+                ns2.systemCapacity(3, 50);
             }
         });
         button6.addActionListener(new CheckActionListener(this) {
             @Override
             protected void performed() {
-                ns2.networkCommunicationSimulation(dirName, 2, "1", type);
+                ns2.systemCapacity(3, 100);
             }
         });
         button7.addActionListener(new CheckActionListener(this) {
             @Override
             protected void performed() {
-                ns2.networkTopologyModel(dirName, 3, "0", type);
+                ns2.connectionRate(2, 0);
             }
         });
         button8.addActionListener(new CheckActionListener(this) {
             @Override
             protected void performed() {
-                ns2.networkCommunicationSimulation(dirName, 3, "0", type);
+                ns2.connectionRate(2, 50);
             }
         });
         button9.addActionListener(new CheckActionListener(this) {
             @Override
             protected void performed() {
-                ns2.networkTopologyModel(dirName, 3, "0.5", type);
+                ns2.connectionRate(2, 100);
             }
         });
         button10.addActionListener(new CheckActionListener(this) {
             @Override
             protected void performed() {
-                ns2.networkCommunicationSimulation(dirName, 3, "0.5", type);
+                ns2.connectionRate(3, 0);
             }
         });
         button11.addActionListener(new CheckActionListener(this) {
             @Override
             protected void performed() {
-                ns2.networkTopologyModel(dirName, 3, "1", type);
+                ns2.connectionRate(3, 50);
             }
         });
         button12.addActionListener(new CheckActionListener(this) {
             @Override
             protected void performed() {
-                ns2.networkCommunicationSimulation(dirName, 3, "1", type);
+                ns2.connectionRate(3, 100);
             }
         });
 

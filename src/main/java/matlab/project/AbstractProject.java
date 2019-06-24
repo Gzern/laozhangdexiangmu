@@ -63,6 +63,7 @@ public abstract class AbstractProject implements IProject {
     }
 
     protected void execute(String command) {
+//        System.out.println("===========" + command);
         Process process = null;
         try {
             process = Runtime.getRuntime().exec(command);
